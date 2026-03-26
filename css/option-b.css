@@ -197,25 +197,24 @@
 
 /* --- Skew theme carried through below-fold --- */
 
-/* Skewed section dividers between sections */
+/* Subtle skewed section dividers — 1% is enough to hint at the tunnel theme */
 .page-gallery .cda-proof,
 .page-gallery .cda-classes,
 .page-gallery .cda-gallery,
 .page-gallery .cda-testimonials {
-  clip-path: polygon(0 2%, 100% 0%, 100% 98%, 0% 100%);
-  margin-top: -1rem;
-  padding-top: calc(var(--cda-section-pad) + 1rem);
-  padding-bottom: calc(var(--cda-section-pad) + 1rem);
+  clip-path: polygon(0 1%, 100% 0%, 100% 99%, 0% 100%);
 }
 
 /* Alternate skew direction */
 .page-gallery .cda-logos,
 .page-gallery .cda-instructors,
 .page-gallery .cda-final-cta {
-  clip-path: polygon(0 0%, 100% 2%, 100% 100%, 0% 98%);
-  margin-top: -1rem;
-  padding-top: calc(var(--cda-section-pad) + 1rem);
-  padding-bottom: calc(var(--cda-section-pad) + 1rem);
+  clip-path: polygon(0 0%, 100% 1%, 100% 100%, 0% 99%);
+}
+
+/* Center the logos label */
+.page-gallery .cda-logos__label {
+  padding-left: 2rem;
 }
 
 /* Class cards get subtle perspective tilt */

@@ -273,6 +273,27 @@
   transform: perspective(1000px) rotateY(-1deg);
 }
 
+/* Override shared section entrance animation — Option B has its own skew theme */
+.page-gallery .cda-section-enter {
+  opacity: 1;
+  transform: none;
+}
+
+.page-gallery .cda-footer-enter {
+  opacity: 1;
+  transform: none;
+}
+
+.page-gallery .cda-footer__grid > div {
+  opacity: 1;
+  transform: none;
+}
+
+.page-gallery .cda-footer__bottom {
+  opacity: 1;
+  transform: none;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .cda-gallery-wall__item {

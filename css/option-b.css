@@ -273,25 +273,19 @@
   transform: perspective(1000px) rotateY(-1deg);
 }
 
-/* Override shared section entrance animation — Option B has its own skew theme */
-.page-gallery .cda-section-enter {
-  opacity: 1;
-  transform: none;
+/* Override ALL shared entrance animations — Option B has its own skew theme */
+.page-gallery .cda-section-enter,
+.page-gallery .cda-footer-enter,
+.page-gallery .cda-reveal,
+.page-gallery .cda-reveal-stagger {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
-.page-gallery .cda-footer-enter {
-  opacity: 1;
-  transform: none;
-}
-
-.page-gallery .cda-footer__grid > div {
-  opacity: 1;
-  transform: none;
-}
-
+.page-gallery .cda-footer__grid > div,
 .page-gallery .cda-footer__bottom {
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* Reduced motion */

@@ -80,9 +80,10 @@
           offsetX = Math.max(-1, Math.min(1, offsetX));
 
           // Cylindrical tunnel: tilt toward center on both axes
-          // Parent has perspective — no perspective() needed here
-          var rotateX = offsetY * 45;   // top tilts forward, bottom tilts back
-          var rotateY = -offsetX * 35;  // left tilts right, right tilts left (toward center)
+          // More exaggerated near edges, especially bottom
+          var yStrength = offsetY > 0 ? 60 : 45; // bottom gets stronger tilt
+          var rotateX = offsetY * yStrength;
+          var rotateY = -offsetX * (35 + Math.abs(offsetY) * 20); // sides tilt more at top/bottom
 
           // Distance from center (0 at center, 1 at corners)
           var dist = Math.sqrt(offsetX * offsetX + offsetY * offsetY);

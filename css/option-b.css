@@ -6,7 +6,7 @@
 /* --- Gallery scroll container --- */
 .cda-gallery-wall {
   position: relative;
-  height: 150vh; /* Short — text fades, gallery visible, quick transition out */
+  height: 120vh; /* Compact — text fades, quick gallery, transition out */
   background: var(--cda-black);
   overflow: clip;
 }

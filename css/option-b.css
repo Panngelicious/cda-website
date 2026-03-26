@@ -1,0 +1,123 @@
+/* ============================================
+   Option B: "The Gallery Wall" — Art-Forward Mosaic Hero
+   ============================================ */
+
+.cda-hero--gallery {
+  padding: 0;
+  background: var(--cda-black);
+}
+
+.cda-mosaic {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.cda-mosaic__tile {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.cda-mosaic__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s ease;
+}
+
+/* Subtle Ken Burns — each tile zooms slowly */
+.cda-mosaic__tile:nth-child(odd) img {
+  animation: cda-ken-burns-in 20s ease infinite alternate;
+}
+
+.cda-mosaic__tile:nth-child(even) img {
+  animation: cda-ken-burns-out 22s ease infinite alternate;
+}
+
+@keyframes cda-ken-burns-in {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes cda-ken-burns-out {
+  0% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Hover overlay on tiles */
+.cda-mosaic__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cda-mosaic__tile:hover .cda-mosaic__info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cda-mosaic__artist {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cda-white);
+}
+
+.cda-mosaic__class {
+  font-size: 0.7rem;
+  color: var(--cda-gray-400);
+}
+
+/* Center frosted glass bar */
+.cda-hero--gallery .cda-hero__overlay {
+  background: none;
+}
+
+.cda-hero--gallery .cda-hero__content {
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 3rem 4rem;
+  max-width: 700px;
+}
+
+.cda-hero--gallery .cda-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.cda-hero--gallery .cda-hero__subtitle {
+  letter-spacing: 0.08em;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+}
+
+/* Responsive: 3 columns on tablet, 2 on mobile */
+@media (max-width: 1024px) {
+  .cda-mosaic {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cda-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .cda-hero--gallery .cda-hero__content {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+}

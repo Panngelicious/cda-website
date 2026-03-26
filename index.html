@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDA Website — Homepage Options</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #8a8a9e;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .option-card {
+      background: #1c2028;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.14, 1, 0.34, 1), box-shadow 0.4s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .option-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    .option-card__preview {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #14181e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #e4b504;
+    }
+    .option-card__body {
+      padding: 1.5rem;
+    }
+    .option-card__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #e4b504;
+      margin-bottom: 0.5rem;
+    }
+    .option-card__title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .option-card__desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #b0b0c0;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      margin-top: 1rem;
+    }
+    .badge--video { background: rgba(228, 181, 4, 0.15); color: #e4b504; }
+    .badge--art { background: rgba(100, 200, 150, 0.15); color: #64c896; }
+    .badge--dark { background: rgba(150, 100, 255, 0.15); color: #9664ff; }
+  </style>
+</head>
+<body>
+  <h1>Concept Design Academy</h1>
+  <p class="subtitle">Homepage Prototype — Choose an Option</p>
+
+  <div class="options">
+    <a href="option-a.html" class="option-card">
+      <div class="option-card__preview">&#9654;</div>
+      <div class="option-card__body">
+        <div class="option-card__label">Option A</div>
+        <h2 class="option-card__title">The Showreel</h2>
+        <p class="option-card__desc">Cinematic video hero — full-viewport looping montage of instructor demos and student work in progress. Maximum emotional impact.</p>
+        <span class="badge badge--video">Video Hero</span>
+      </div>
+    </a>
+
+    <a href="option-b.html" class="option-card">
+      <div class="option-card__preview">&#9638;</div>
+      <div class="option-card__body">
+        <div class="option-card__label">Option B</div>
+        <h2 class="option-card__title">The Gallery Wall</h2>
+        <p class="option-card__desc">Art-forward mosaic grid — stunning artwork fills the viewport. The quality of the work makes the argument. Walking into a gallery opening.</p>
+        <span class="badge badge--art">Art Mosaic</span>
+      </div>
+    </a>
+
+    <a href="option-c.html" class="option-card">
+      <div class="option-card__preview">&#10023;</div>
+      <div class="option-card__body">
+        <div class="option-card__label">Option C</div>
+        <h2 class="option-card__title">The Canvas</h2>
+        <p class="option-card__desc">Dark immersive gallery — artwork floats at different depths, shifting with mouse movement. Custom cursor, scramble text. Awwwards-level craft.</p>
+        <span class="badge badge--dark">Dark Immersive</span>
+      </div>
+    </a>
+  </div>
+</body>
+</html>

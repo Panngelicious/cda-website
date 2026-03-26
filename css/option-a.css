@@ -1,0 +1,97 @@
+/* ============================================
+   Option A: "The Showreel" — Cinematic Video Hero
+   ============================================ */
+
+.cda-hero--showreel {
+  background: var(--cda-black);
+}
+
+.cda-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cda-hero__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Poster image fallback */
+.cda-hero__video--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cda-black);
+  z-index: 1;
+  transition: opacity 1s ease;
+}
+
+.cda-hero__video--loaded::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Overlay gradient for text readability */
+.cda-hero--showreel .cda-hero__overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.4) 0%,
+    rgba(10, 10, 10, 0.15) 30%,
+    rgba(10, 10, 10, 0.15) 60%,
+    rgba(10, 10, 10, 0.7) 100%
+  );
+}
+
+/* Title entrance animation */
+.cda-hero--showreel .cda-hero__title {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.cda-hero--showreel .cda-hero__subtitle {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.cda-hero--showreel .cda-btn {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.cda-hero--showreel .cda-hero__scroll {
+  opacity: 0;
+}
+
+/* Video controls overlay (bottom-right) */
+.cda-hero__video-controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 4;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cda-hero__video-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  color: var(--cda-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.cda-hero__video-btn:hover {
+  border-color: var(--cda-white);
+  background: rgba(0, 0, 0, 0.6);
+}

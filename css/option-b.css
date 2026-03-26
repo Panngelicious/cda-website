@@ -23,22 +23,24 @@
   transform-style: preserve-3d;
 }
 
-/* Grid layout */
+/* Grid layout — positioned absolutely so we can scroll it via top */
 .cda-gallery-wall__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: clamp(8px, 1.5vw, 16px);
-  padding: clamp(8px, 1.5vw, 16px);
+  gap: clamp(6px, 1vw, 12px);
+  padding: clamp(6px, 1vw, 12px);
   width: 100%;
-  will-change: transform;
+  position: absolute;
+  left: 0;
+  top: 0;
   transform-style: preserve-3d;
 }
 
 /* Individual grid item — no overflow:hidden (clips 3D), no per-item perspective */
 .cda-gallery-wall__item {
   position: relative;
-  aspect-ratio: 3 / 4;
-  border-radius: 6px;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
   will-change: transform, opacity;
   transform-style: preserve-3d;
 }
@@ -51,7 +53,7 @@
 
 .cda-gallery-wall__item--tall {
   grid-row: span 2;
-  aspect-ratio: auto;
+  aspect-ratio: 3 / 4;
 }
 
 /* Image inside item */
@@ -185,20 +187,20 @@
 .page-gallery .cda-classes,
 .page-gallery .cda-gallery,
 .page-gallery .cda-testimonials {
-  clip-path: polygon(0 3%, 100% 0%, 100% 97%, 0% 100%);
-  margin-top: -2rem;
-  padding-top: calc(var(--cda-section-pad) + 2rem);
-  padding-bottom: calc(var(--cda-section-pad) + 2rem);
+  clip-path: polygon(0 2%, 100% 0%, 100% 98%, 0% 100%);
+  margin-top: -1rem;
+  padding-top: calc(var(--cda-section-pad) + 1rem);
+  padding-bottom: calc(var(--cda-section-pad) + 1rem);
 }
 
 /* Alternate skew direction */
 .page-gallery .cda-logos,
 .page-gallery .cda-instructors,
 .page-gallery .cda-final-cta {
-  clip-path: polygon(0 0%, 100% 3%, 100% 100%, 0% 97%);
-  margin-top: -2rem;
-  padding-top: calc(var(--cda-section-pad) + 2rem);
-  padding-bottom: calc(var(--cda-section-pad) + 2rem);
+  clip-path: polygon(0 0%, 100% 2%, 100% 100%, 0% 98%);
+  margin-top: -1rem;
+  padding-top: calc(var(--cda-section-pad) + 1rem);
+  padding-bottom: calc(var(--cda-section-pad) + 1rem);
 }
 
 /* Class cards get subtle perspective tilt */

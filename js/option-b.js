@@ -47,9 +47,12 @@
         ));
 
         // Move the grid upward — tripled content means more to scroll through
-        // Keep images visible throughout — translate less with shorter container
-        var gridTranslateY = -progress * 30;
-        grid.style.transform = 'translateY(' + gridTranslateY + '%)';
+        // Scroll grid by moving its top position based on scroll progress
+        // gridScrollable = how much of the grid is hidden below the viewport
+        var gridHeight = grid.scrollHeight;
+        var gridScrollable = gridHeight - viewportHeight;
+        var gridTop = -progress * gridScrollable;
+        grid.style.top = gridTop + 'px';
 
         var viewportWidth = window.innerWidth;
 

@@ -2,3 +2,7 @@
 .claude/
 node_modules/
 *.log
+
+# Large video assets — compress before committing for web
+assets/*.mp4
+assets/videos/

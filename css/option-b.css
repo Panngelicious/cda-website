@@ -9,36 +9,35 @@
   height: 400vh; /* ~5 seconds of scroll at normal speed */
   background: var(--cda-black);
   overflow: hidden;
-  perspective: 1200px;
-  perspective-origin: 50% 50%;
 }
 
-/* Sticky viewport — grid stays visible while scrolling */
+/* Sticky viewport — shared perspective for cylindrical tunnel */
 .cda-gallery-wall__viewport {
   position: sticky;
   top: 0;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  perspective: 1200px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
 }
 
-/* Grid layout: sparse, huge images */
+/* Grid layout */
 .cda-gallery-wall__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: clamp(8px, 1.5vw, 16px);
   padding: clamp(8px, 1.5vw, 16px);
-  width: 130%;
-  margin-left: -15%;
+  width: 100%;
   will-change: transform;
+  transform-style: preserve-3d;
 }
 
-/* Individual grid item */
+/* Individual grid item — no overflow:hidden (clips 3D), no per-item perspective */
 .cda-gallery-wall__item {
   position: relative;
   aspect-ratio: 3 / 4;
-  overflow: hidden;
   border-radius: 6px;
   will-change: transform, opacity;
   transform-style: preserve-3d;
@@ -143,16 +142,12 @@
 @media (max-width: 1024px) {
   .cda-gallery-wall__grid {
     grid-template-columns: repeat(4, 1fr);
-    width: 120%;
-    margin-left: -10%;
   }
 }
 
 @media (max-width: 768px) {
   .cda-gallery-wall__grid {
     grid-template-columns: repeat(3, 1fr);
-    width: 110%;
-    margin-left: -5%;
   }
   .cda-gallery-wall__item--wide {
     grid-column: span 1;

@@ -73,20 +73,21 @@
           offsetX = Math.max(-1, Math.min(1, offsetX));
 
           // Cylindrical tunnel: tilt toward center on both axes
-          var rotateX = offsetY * 40;   // top tilts forward, bottom tilts back
-          var rotateY = -offsetX * 30;  // left tilts right, right tilts left (toward center)
+          // Parent has perspective — no perspective() needed here
+          var rotateX = offsetY * 45;   // top tilts forward, bottom tilts back
+          var rotateY = -offsetX * 35;  // left tilts right, right tilts left (toward center)
 
           // Distance from center (0 at center, 1 at corners)
           var dist = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
           dist = Math.min(1, dist);
 
-          // Scale: larger at center, smaller at edges
-          var scale = 1 - dist * 0.2;
           // Opacity: brighter at center, dimmer at edges
           var opacity = 1 - dist * 0.5;
 
-          item.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(' + scale + ')';
-          item.style.opacity = Math.max(0.2, opacity);
+          // No perspective() — parent viewport's perspective creates shared vanishing point
+          // This is what makes the trapezoid/tunnel effect work
+          item.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+          item.style.opacity = Math.max(0.15, opacity);
         });
 
         // Toggle fixed overlay visibility when past gallery

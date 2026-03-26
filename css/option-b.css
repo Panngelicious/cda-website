@@ -91,7 +91,15 @@
   max-width: 700px;
   padding: 0 2rem;
   pointer-events: auto;
-  /* No CSS transition — JS controls opacity/transform per scroll frame */
+  opacity: 1 !important; /* Always visible on load — JS only fades OUT on scroll */
+  transition: none;
+}
+
+.cda-hero--gallery .cda-hero__title,
+.cda-hero--gallery .cda-hero__subtitle,
+.cda-hero--gallery .cda-btn {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .cda-hero--gallery .cda-hero__title {

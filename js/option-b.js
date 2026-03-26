@@ -22,9 +22,9 @@
 
     if (!container || !grid || !items.length) return;
 
-    // Duplicate grid items 2x for seamless infinite scroll feel
+    // Duplicate grid items 5x for seamless infinite scroll feel
     var originalHTML = grid.innerHTML;
-    grid.innerHTML = originalHTML + originalHTML + originalHTML;
+    grid.innerHTML = originalHTML + originalHTML + originalHTML + originalHTML + originalHTML + originalHTML;
 
     // Re-query after duplication
     items = grid.querySelectorAll('.cda-gallery-wall__item');
@@ -47,7 +47,8 @@
         ));
 
         // Move the grid upward — tripled content means more to scroll through
-        var gridTranslateY = -progress * 70; // percentage of the tripled grid
+        // Keep images visible throughout — translate less with shorter container
+        var gridTranslateY = -progress * 30;
         grid.style.transform = 'translateY(' + gridTranslateY + '%)';
 
         var viewportWidth = window.innerWidth;
@@ -92,11 +93,9 @@
 
         // Toggle fixed overlay visibility when past gallery
         if (heroSection) {
-          if (scrollY > containerTop + containerHeight - viewportHeight - 100) {
-            heroSection.classList.add('cda-gallery--past');
-          } else {
-            heroSection.classList.remove('cda-gallery--past');
-          }
+          var pastGallery = scrollY > containerTop + containerHeight - viewportHeight * 1.5;
+          document.body.classList.toggle('cda-gallery--past', pastGallery);
+          heroSection.classList.toggle('cda-gallery--past', pastGallery);
         }
 
         ticking = false;
@@ -156,14 +155,18 @@
       content.style.opacity = '1';
     }, 200);
 
-    // Dismiss title after 3 seconds — scrolls up and fades out
-    setTimeout(function () {
-      content.classList.add('cda-hero__content--gone');
-      if (scrollHint) {
-        scrollHint.style.transition = 'opacity 0.6s ease';
-        scrollHint.style.opacity = '0';
+    // Dismiss title on scroll instead of timer
+    function checkScrollDismiss() {
+      if (window.pageYOffset > 200) {
+        content.classList.add('cda-hero__content--gone');
+        if (scrollHint) {
+          scrollHint.style.transition = 'opacity 0.6s ease';
+          scrollHint.style.opacity = '0';
+        }
+        window.removeEventListener('scroll', checkScrollDismiss);
       }
-    }, 3000);
+    }
+    window.addEventListener('scroll', checkScrollDismiss, { passive: true });
   }
 
   function init() {

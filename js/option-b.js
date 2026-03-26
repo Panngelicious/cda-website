@@ -50,29 +50,43 @@
         var gridTranslateY = -progress * 70; // percentage of the tripled grid
         grid.style.transform = 'translateY(' + gridTranslateY + '%)';
 
-        // 3D effect on each item based on its position in viewport
+        var viewportWidth = window.innerWidth;
+
+        // 3D cylindrical effect — items tilt toward center on both axes
         items.forEach(function (item) {
           var rect = item.getBoundingClientRect();
 
           // Skip items far off screen for performance
           if (rect.bottom < -200 || rect.top > viewportHeight + 200) return;
 
-          var itemCenter = rect.top + rect.height / 2;
-          var viewCenter = viewportHeight / 2;
+          var itemCenterX = rect.left + rect.width / 2;
+          var itemCenterY = rect.top + rect.height / 2;
+          var viewCenterX = viewportWidth / 2;
+          var viewCenterY = viewportHeight / 2;
 
-          // -1 at top of screen, 0 at center, +1 at bottom
-          var offset = (itemCenter - viewCenter) / viewportHeight;
-          offset = Math.max(-1, Math.min(1, offset));
+          // Vertical offset: -1 at top, 0 at center, +1 at bottom
+          var offsetY = (itemCenterY - viewCenterY) / viewportHeight;
+          offsetY = Math.max(-1, Math.min(1, offsetY));
 
-          // 3D rotation: items above center tilt forward, below tilt back
-          var rotateX = offset * 35;
-          // Scale: smaller at edges, full size at center
-          var scale = 1 - Math.abs(offset) * 0.15;
-          // Opacity: fade at extreme edges
-          var opacity = 1 - Math.abs(offset) * 0.4;
+          // Horizontal offset: -1 at left, 0 at center, +1 at right
+          var offsetX = (itemCenterX - viewCenterX) / viewportWidth;
+          offsetX = Math.max(-1, Math.min(1, offsetX));
 
-          item.style.transform = 'perspective(1200px) rotateX(' + rotateX + 'deg) scale(' + scale + ')';
-          item.style.opacity = Math.max(0.3, opacity);
+          // Cylindrical tunnel: tilt toward center on both axes
+          var rotateX = offsetY * 40;   // top tilts forward, bottom tilts back
+          var rotateY = -offsetX * 30;  // left tilts right, right tilts left (toward center)
+
+          // Distance from center (0 at center, 1 at corners)
+          var dist = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
+          dist = Math.min(1, dist);
+
+          // Scale: larger at center, smaller at edges
+          var scale = 1 - dist * 0.2;
+          // Opacity: brighter at center, dimmer at edges
+          var opacity = 1 - dist * 0.5;
+
+          item.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(' + scale + ')';
+          item.style.opacity = Math.max(0.2, opacity);
         });
 
         // Toggle fixed overlay visibility when past gallery

@@ -111,40 +111,86 @@
     </div>
   </section>
 
-  <!-- Featured Classes -->
+  <!-- Featured Classes — List + Preview Layout (from Option A) -->
   <section id="classes" class="cda-section cda-classes">
     <div class="cda-container">
       <div class="cda-section__label cda-reveal">This Term's Spotlight</div>
-      <h2 class="cda-section__heading cda-reveal">Featured Classes</h2>
-      <div class="cda-classes__grid" data-cda-stagger>
-        <div class="cda-class-card cda-reveal-stagger">
-          <img class="cda-class-card__image" src="assets/artwork/class-character.jpg" alt="Character Design class" loading="lazy">
-          <div class="cda-class-card__body">
-            <div class="cda-class-card__instructor">John Staub &middot; Marvel Studios</div>
-            <h3 class="cda-class-card__title">Character Design for Entertainment</h3>
-            <p class="cda-class-card__meta">Spring 2026 &middot; 10 weeks &middot; Online</p>
-            <span class="cda-class-card__seats">8 seats remaining</span>
-            <a href="#" class="cda-class-card__link">Learn More</a>
+      <h2 class="cda-section__heading cda-heading--massive cda-split">Featured Classes</h2>
+      <div class="cda-classes__layout">
+        <div class="cda-classes__list" data-cda-stagger>
+          <div class="cda-classes__highlight"></div>
+          <div class="cda-class-row cda-class-row--active cda-reveal-stagger"
+               data-cda-preview="assets/artwork/class-character.jpg"
+               data-cda-title="Character Design for Entertainment"
+               data-cda-desc="Learn to design compelling characters for film, games, and animation from a Marvel Studios veteran."
+               data-cda-seats="8">
+            <span class="cda-class-row__code">SPR26.01</span>
+            <span class="cda-class-row__name">John Staub</span>
+            <span class="cda-class-row__title">Character Design for Entertainment</span>
+            <span class="cda-class-row__meta">10 wk &middot; Online</span>
+          </div>
+          <div class="cda-class-row cda-reveal-stagger"
+               data-cda-preview="assets/artwork/class-environment.jpg"
+               data-cda-title="Concept Art &amp; Matte Painting"
+               data-cda-desc="Master environment design and digital matte painting techniques used on Disney and Marvel productions."
+               data-cda-seats="5">
+            <span class="cda-class-row__code">SPR26.02</span>
+            <span class="cda-class-row__name">Shae Shatz</span>
+            <span class="cda-class-row__title">Concept Art &amp; Matte Painting</span>
+            <span class="cda-class-row__meta">10 wk &middot; Online</span>
+          </div>
+          <div class="cda-class-row cda-reveal-stagger"
+               data-cda-preview="assets/artwork/class-storyboard.jpg"
+               data-cda-title="Intro to Animation Storyboard"
+               data-cda-desc="Build the visual storytelling skills used on Kung Fu Panda, Star Trek, and more."
+               data-cda-seats="12">
+            <span class="cda-class-row__code">SPR26.03</span>
+            <span class="cda-class-row__name">Sam Szymanski</span>
+            <span class="cda-class-row__title">Intro to Animation Storyboard</span>
+            <span class="cda-class-row__meta">10 wk &middot; Online</span>
+          </div>
+          <div class="cda-class-row cda-reveal-stagger"
+               data-cda-preview="assets/artwork/class-character.jpg"
+               data-cda-title="Industrial Design Sketching"
+               data-cda-desc="From vehicles to product design — hard-surface sketching for entertainment and automotive industries."
+               data-cda-seats="10">
+            <span class="cda-class-row__code">SPR26.04</span>
+            <span class="cda-class-row__name">John Frye</span>
+            <span class="cda-class-row__title">Industrial Design Sketching</span>
+            <span class="cda-class-row__meta">10 wk &middot; In-Person</span>
+          </div>
+          <div class="cda-class-row cda-reveal-stagger"
+               data-cda-preview="assets/artwork/class-environment.jpg"
+               data-cda-title="Creature Design for Film"
+               data-cda-desc="Design believable creatures grounded in anatomy and biology for feature film and games."
+               data-cda-seats="6">
+            <span class="cda-class-row__code">SPR26.05</span>
+            <span class="cda-class-row__name">Gregory Weir-Quiton</span>
+            <span class="cda-class-row__title">Creature Design for Film</span>
+            <span class="cda-class-row__meta">10 wk &middot; Online</span>
+          </div>
+          <div class="cda-class-row cda-reveal-stagger"
+               data-cda-preview="assets/artwork/class-storyboard.jpg"
+               data-cda-title="Digital Painting Fundamentals"
+               data-cda-desc="Master color, light, and composition in Photoshop — the foundation for every concept artist."
+               data-cda-seats="15">
+            <span class="cda-class-row__code">SPR26.06</span>
+            <span class="cda-class-row__name">Kevin Chen</span>
+            <span class="cda-class-row__title">Digital Painting Fundamentals</span>
+            <span class="cda-class-row__meta">10 wk &middot; Online</span>
           </div>
         </div>
-        <div class="cda-class-card cda-reveal-stagger">
-          <img class="cda-class-card__image" src="assets/artwork/class-environment.jpg" alt="Environment Design class" loading="lazy">
-          <div class="cda-class-card__body">
-            <div class="cda-class-card__instructor">Shae Shatz &middot; Disney / Marvel</div>
-            <h3 class="cda-class-card__title">Concept Art &amp; Matte Painting</h3>
-            <p class="cda-class-card__meta">Spring 2026 &middot; 10 weeks &middot; Online</p>
-            <span class="cda-class-card__seats">5 seats remaining</span>
-            <a href="#" class="cda-class-card__link">Learn More</a>
+        <div class="cda-classes__preview">
+          <div class="cda-classes__preview-img">
+            <img src="assets/artwork/class-character.jpg" alt="Class preview" id="cda-class-preview-img">
           </div>
-        </div>
-        <div class="cda-class-card cda-reveal-stagger">
-          <img class="cda-class-card__image" src="assets/artwork/class-storyboard.jpg" alt="Storyboarding class" loading="lazy">
-          <div class="cda-class-card__body">
-            <div class="cda-class-card__instructor">Sam Szymanski &middot; DreamWorks / Netflix</div>
-            <h3 class="cda-class-card__title">Intro to Animation Storyboard</h3>
-            <p class="cda-class-card__meta">Spring 2026 &middot; 10 weeks &middot; Online</p>
-            <span class="cda-class-card__seats">12 seats remaining</span>
-            <a href="#" class="cda-class-card__link">Learn More</a>
+          <div class="cda-classes__preview-info">
+            <h3 class="cda-classes__preview-title" id="cda-class-preview-title">Character Design for Entertainment</h3>
+            <p class="cda-classes__preview-desc" id="cda-class-preview-desc">Learn to design compelling characters for film, games, and animation from a Marvel Studios veteran.</p>
+            <div class="cda-classes__preview-meta">
+              <span class="cda-class-card__seats" id="cda-class-preview-seats">8 seats remaining</span>
+              <a href="#" class="cda-class-card__link">Enroll &rarr;</a>
+            </div>
           </div>
         </div>
       </div>

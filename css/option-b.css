@@ -226,25 +226,14 @@
   padding-left: 2rem;
 }
 
-/* Class cards get subtle perspective tilt */
-.page-gallery .cda-class-card {
+/* Class list rows: subtle alternating tilt on the preview panel */
+.page-gallery .cda-classes__preview {
+  transform: perspective(800px) rotateY(-2deg);
   transition: transform 0.5s cubic-bezier(0.14, 1, 0.34, 1);
 }
 
-.page-gallery .cda-class-card:nth-child(1) {
-  transform: perspective(800px) rotateY(3deg);
-}
-
-.page-gallery .cda-class-card:nth-child(2) {
+.page-gallery .cda-classes__preview:hover {
   transform: perspective(800px) rotateY(0deg);
-}
-
-.page-gallery .cda-class-card:nth-child(3) {
-  transform: perspective(800px) rotateY(-3deg);
-}
-
-.page-gallery .cda-class-card:hover {
-  transform: perspective(800px) rotateY(0deg) translateY(-6px) !important;
 }
 
 /* Instructor cards: very subtle alternating tilt */

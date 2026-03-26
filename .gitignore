@@ -3,6 +3,6 @@
 node_modules/
 *.log
 
-# Large video assets — compress before committing for web
+# Raw source video files (too large for git)
 assets/*.mp4
-assets/videos/
+# Compressed web-ready videos ARE committed (assets/videos/)

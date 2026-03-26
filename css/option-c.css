@@ -1,0 +1,261 @@
+/* ============================================
+   Option C: "The Canvas" — Dark Immersive Parallax
+   Inspired by darknode.army + thelinestudio.com
+   ============================================ */
+
+/* Override body for dark theme */
+.page-canvas {
+  background: var(--cda-dark);
+  cursor: none;
+}
+
+/* Custom cursor */
+.cda-cursor {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(228, 181, 4, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+.cda-cursor--hidden {
+  opacity: 0;
+}
+
+/* Restore cursor on interactive elements */
+.page-canvas a,
+.page-canvas button,
+.page-canvas input {
+  cursor: pointer;
+}
+
+/* Hero: dark canvas */
+.cda-hero--canvas {
+  background: var(--cda-dark);
+  overflow: hidden;
+}
+
+/* Floating artwork layers */
+.cda-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cda-canvas__layer {
+  position: absolute;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.cda-canvas__layer img {
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Layer positions and sizes — arranged for visual composition */
+.cda-canvas__layer--1 {
+  top: 8%;
+  left: 5%;
+  width: 22%;
+  z-index: 2;
+}
+
+.cda-canvas__layer--2 {
+  top: 5%;
+  right: 8%;
+  width: 20%;
+  z-index: 1;
+}
+
+.cda-canvas__layer--3 {
+  bottom: 15%;
+  left: 8%;
+  width: 18%;
+  z-index: 3;
+  filter: blur(1px);
+}
+
+.cda-canvas__layer--4 {
+  bottom: 10%;
+  right: 5%;
+  width: 24%;
+  z-index: 2;
+}
+
+.cda-canvas__layer--5 {
+  top: 35%;
+  left: 30%;
+  width: 15%;
+  z-index: 1;
+  opacity: 0.6;
+  filter: blur(2px);
+}
+
+.cda-canvas__layer--6 {
+  top: 25%;
+  right: 25%;
+  width: 16%;
+  z-index: 4;
+}
+
+.cda-canvas__layer--7 {
+  bottom: 30%;
+  left: 40%;
+  width: 12%;
+  z-index: 1;
+  opacity: 0.5;
+  filter: blur(3px);
+}
+
+/* Ambient float animation when cursor is still */
+@keyframes cda-float-1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(0.5deg); }
+}
+
+@keyframes cda-float-2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-0.5deg); }
+}
+
+.cda-canvas__layer--1 { animation: cda-float-1 8s ease-in-out infinite; }
+.cda-canvas__layer--2 { animation: cda-float-2 10s ease-in-out infinite; }
+.cda-canvas__layer--3 { animation: cda-float-1 12s ease-in-out infinite; }
+.cda-canvas__layer--4 { animation: cda-float-2 9s ease-in-out infinite; }
+.cda-canvas__layer--5 { animation: cda-float-1 14s ease-in-out infinite; }
+.cda-canvas__layer--6 { animation: cda-float-2 11s ease-in-out infinite; }
+.cda-canvas__layer--7 { animation: cda-float-1 16s ease-in-out infinite; }
+
+/* Hero content in the middle ground */
+.cda-hero--canvas .cda-hero__content {
+  z-index: 5;
+  max-width: 650px;
+}
+
+.cda-hero--canvas .cda-hero__overlay {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(20, 24, 30, 0.7) 0%,
+    rgba(20, 24, 30, 0.3) 50%,
+    rgba(20, 24, 30, 0.8) 100%
+  );
+}
+
+/* Scramble text style */
+.cda-scramble {
+  font-family: var(--cda-font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Hero title: gold accent for CDA name */
+.cda-hero--canvas .cda-hero__title {
+  color: var(--cda-white);
+}
+
+.cda-hero--canvas .cda-hero__subtitle {
+  color: var(--cda-gray-300);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+/* CTA button: gold on dark */
+.cda-hero--canvas .cda-btn--primary {
+  background: var(--cda-accent);
+  color: var(--cda-dark);
+}
+
+.cda-hero--canvas .cda-btn--primary:hover {
+  background: var(--cda-gold-hover);
+  box-shadow: 0 0 30px rgba(228, 181, 4, 0.3);
+}
+
+/* Below-fold sections inherit dark theme */
+.page-canvas .cda-proof {
+  background: var(--cda-dark);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.page-canvas .cda-logos {
+  background: var(--cda-dark-surface);
+}
+
+.page-canvas .cda-classes {
+  background: var(--cda-dark);
+}
+
+.page-canvas .cda-instructors {
+  background: var(--cda-dark-surface);
+}
+
+.page-canvas .cda-gallery {
+  background: var(--cda-dark);
+}
+
+.page-canvas .cda-testimonials {
+  background: var(--cda-dark-surface);
+}
+
+.page-canvas .cda-final-cta {
+  background: var(--cda-dark);
+}
+
+.page-canvas .cda-footer {
+  background: #0d1015;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Section heading character reveal */
+.cda-char-reveal span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Responsive: simplify floating layers */
+@media (max-width: 1024px) {
+  .cda-canvas__layer--5,
+  .cda-canvas__layer--7 {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-canvas {
+    cursor: auto;
+  }
+
+  .cda-cursor {
+    display: none;
+  }
+
+  .cda-canvas__layer--3,
+  .cda-canvas__layer--5,
+  .cda-canvas__layer--7 {
+    display: none;
+  }
+
+  .cda-canvas__layer--1 { width: 35%; top: 5%; left: 3%; }
+  .cda-canvas__layer--2 { width: 30%; top: 3%; right: 3%; }
+  .cda-canvas__layer--4 { width: 35%; bottom: 8%; right: 3%; }
+  .cda-canvas__layer--6 { width: 25%; top: 40%; right: 15%; }
+}
+
+/* Reduced motion: disable all floating */
+@media (prefers-reduced-motion: reduce) {
+  .cda-canvas__layer {
+    animation: none !important;
+  }
+
+  .cda-cursor {
+    display: none;
+  }
+
+  .page-canvas {
+    cursor: auto;
+  }
+}

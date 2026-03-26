@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Concept Design Academy — The Showreel</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Concept Design Academy — The Canvas</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/shared.css">
-  <link rel="stylesheet" href="css/option-a.css">
+  <link rel="stylesheet" href="css/option-c.css">
 </head>
-<body>
+<body class="page-canvas">
+
+  <!-- Custom Cursor -->
+  <div class="cda-cursor"></div>
 
   <!-- Navigation -->
   <nav class="cda-nav">
@@ -25,28 +28,48 @@
     </button>
   </nav>
 
-  <!-- Hero: The Showreel -->
-  <section class="cda-hero cda-hero--showreel">
-    <div class="cda-hero__video cda-hero__video--loading">
-      <video autoplay muted loop playsinline poster="assets/artwork/hero-poster.svg">
-        <source src="assets/videos/hero-reel.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+  <!-- Hero: The Canvas -->
+  <section class="cda-hero cda-hero--canvas">
+    <!-- Floating artwork layers -->
+    <div class="cda-canvas">
+      <div class="cda-canvas__layer cda-canvas__layer--1">
+        <img src="assets/artwork/canvas-01.svg" alt="Character concept art">
+      </div>
+      <div class="cda-canvas__layer cda-canvas__layer--2">
+        <img src="assets/artwork/canvas-02.svg" alt="Environment painting">
+      </div>
+      <div class="cda-canvas__layer cda-canvas__layer--3">
+        <img src="assets/artwork/canvas-03.svg" alt="Vehicle design">
+      </div>
+      <div class="cda-canvas__layer cda-canvas__layer--4">
+        <img src="assets/artwork/canvas-04.svg" alt="Figure illustration">
+      </div>
+      <div class="cda-canvas__layer cda-canvas__layer--5">
+        <img src="assets/artwork/canvas-05.svg" alt="Concept art">
+      </div>
+      <div class="cda-canvas__layer cda-canvas__layer--6">
+        <img src="assets/artwork/canvas-06.svg" alt="Anatomy study">
+      </div>
+      <div class="cda-canvas__layer cda-canvas__layer--7">
+        <img src="assets/artwork/canvas-07.svg" alt="Storyboard">
+      </div>
     </div>
+
     <div class="cda-hero__overlay"></div>
+
     <div class="cda-hero__content">
-      <h1 class="cda-hero__title">Your Career in Entertainment Starts Here</h1>
-      <p class="cda-hero__subtitle">Concept Art &middot; Character Design &middot; Environment Art &middot; Visual Development</p>
-      <a href="#classes" class="cda-btn cda-btn--primary">Explore This Term's Classes &rarr;</a>
+      <h1 class="cda-hero__title">
+        <span class="cda-scramble" data-cda-scramble="Concept Design Academy">Concept Design Academy</span>
+      </h1>
+      <p class="cda-hero__subtitle">Train with the artists behind your favorite worlds</p>
+      <a href="#classes" class="cda-btn cda-btn--primary">Explore Classes &rarr;</a>
     </div>
+
     <div class="cda-hero__scroll">
       <span>Scroll</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 5v14M5 12l7 7 7-7"/>
       </svg>
-    </div>
-    <div class="cda-hero__video-controls">
-      <button class="cda-hero__video-btn" data-cda-video-pause aria-label="Pause video">⏸</button>
     </div>
   </section>
 
@@ -74,7 +97,7 @@
     </div>
   </section>
 
-  <!-- Logo Bar: Where CDA Students Work -->
+  <!-- Logo Bar -->
   <section class="cda-logos">
     <div class="cda-logos__label">Where Our Students End Up</div>
     <div class="cda-logos__track">
@@ -175,45 +198,27 @@
       <div class="cda-gallery__grid" data-cda-stagger>
         <div class="cda-gallery__item cda-reveal-stagger">
           <img src="assets/artwork/student-01.svg" alt="Student artwork" loading="lazy">
-          <div class="cda-gallery__overlay">
-            <span class="cda-gallery__student">Student Name</span>
-            <span class="cda-gallery__class">Character Design &middot; Now at Riot Games</span>
-          </div>
+          <div class="cda-gallery__overlay"><span class="cda-gallery__student">Student Name</span><span class="cda-gallery__class">Character Design</span></div>
         </div>
         <div class="cda-gallery__item cda-reveal-stagger">
           <img src="assets/artwork/student-02.svg" alt="Student artwork" loading="lazy">
-          <div class="cda-gallery__overlay">
-            <span class="cda-gallery__student">Student Name</span>
-            <span class="cda-gallery__class">Environment Art &middot; Now at Blizzard</span>
-          </div>
+          <div class="cda-gallery__overlay"><span class="cda-gallery__student">Student Name</span><span class="cda-gallery__class">Environment Art</span></div>
         </div>
         <div class="cda-gallery__item cda-reveal-stagger">
           <img src="assets/artwork/student-03.svg" alt="Student artwork" loading="lazy">
-          <div class="cda-gallery__overlay">
-            <span class="cda-gallery__student">Student Name</span>
-            <span class="cda-gallery__class">Visual Development &middot; Now at Disney</span>
-          </div>
+          <div class="cda-gallery__overlay"><span class="cda-gallery__student">Student Name</span><span class="cda-gallery__class">Visual Development</span></div>
         </div>
         <div class="cda-gallery__item cda-reveal-stagger">
           <img src="assets/artwork/student-04.svg" alt="Student artwork" loading="lazy">
-          <div class="cda-gallery__overlay">
-            <span class="cda-gallery__student">Student Name</span>
-            <span class="cda-gallery__class">Storyboarding &middot; Now at Netflix</span>
-          </div>
+          <div class="cda-gallery__overlay"><span class="cda-gallery__student">Student Name</span><span class="cda-gallery__class">Storyboarding</span></div>
         </div>
         <div class="cda-gallery__item cda-reveal-stagger">
           <img src="assets/artwork/student-05.svg" alt="Student artwork" loading="lazy">
-          <div class="cda-gallery__overlay">
-            <span class="cda-gallery__student">Student Name</span>
-            <span class="cda-gallery__class">Concept Art &middot; Now at Naughty Dog</span>
-          </div>
+          <div class="cda-gallery__overlay"><span class="cda-gallery__student">Student Name</span><span class="cda-gallery__class">Concept Art</span></div>
         </div>
         <div class="cda-gallery__item cda-reveal-stagger">
           <img src="assets/artwork/student-06.svg" alt="Student artwork" loading="lazy">
-          <div class="cda-gallery__overlay">
-            <span class="cda-gallery__student">Student Name</span>
-            <span class="cda-gallery__class">Character Design &middot; Now at Marvel</span>
-          </div>
+          <div class="cda-gallery__overlay"><span class="cda-gallery__student">Student Name</span><span class="cda-gallery__class">Character Design</span></div>
         </div>
       </div>
     </div>
@@ -229,20 +234,14 @@
           <p class="cda-testimonial__quote">"CDA gave me the foundation I needed to break into the industry. Within 6 months of completing my classes, I landed my first role at a major studio."</p>
           <div class="cda-testimonial__author">
             <img class="cda-testimonial__photo" src="assets/artwork/testimonial-01.svg" alt="Student photo" loading="lazy">
-            <div>
-              <div class="cda-testimonial__name">Recent Graduate</div>
-              <div class="cda-testimonial__role">Character Artist, Major Studio</div>
-            </div>
+            <div><div class="cda-testimonial__name">Recent Graduate</div><div class="cda-testimonial__role">Character Artist, Major Studio</div></div>
           </div>
         </div>
         <div class="cda-testimonial cda-reveal-stagger">
-          <p class="cda-testimonial__quote">"After 12 years in the industry, I thought I knew everything. CDA's instructors pushed me to see my work in an entirely new way. Worth every penny."</p>
+          <p class="cda-testimonial__quote">"After 12 years in the industry, I thought I knew everything. CDA's instructors pushed me to see my work in an entirely new way."</p>
           <div class="cda-testimonial__author">
             <img class="cda-testimonial__photo" src="assets/artwork/testimonial-02.svg" alt="Student photo" loading="lazy">
-            <div>
-              <div class="cda-testimonial__name">Industry Veteran</div>
-              <div class="cda-testimonial__role">Senior Concept Artist, AAA Studio</div>
-            </div>
+            <div><div class="cda-testimonial__name">Industry Veteran</div><div class="cda-testimonial__role">Senior Concept Artist, AAA Studio</div></div>
           </div>
         </div>
       </div>
@@ -251,9 +250,7 @@
 
   <!-- Final CTA -->
   <section id="enroll" class="cda-final-cta">
-    <div class="cda-final-cta__bg">
-      <img src="assets/artwork/cta-bg.svg" alt="" loading="lazy">
-    </div>
+    <div class="cda-final-cta__bg"><img src="assets/artwork/cta-bg.svg" alt="" loading="lazy"></div>
     <div class="cda-container cda-final-cta__content cda-reveal">
       <h2 class="cda-final-cta__heading">Spring 2026 Term Opens Soon</h2>
       <p class="cda-final-cta__text">60+ classes. World-class instructors. Your next chapter starts here.</p>
@@ -270,7 +267,7 @@
       <div class="cda-footer__grid">
         <div>
           <div class="cda-footer__brand">Concept Design Academy</div>
-          <p class="cda-footer__desc">Training the next generation of entertainment artists since 2007. Located in Pasadena, California — the heart of the entertainment industry.</p>
+          <p class="cda-footer__desc">Training the next generation of entertainment artists since 2007. Located in Pasadena, California.</p>
           <div class="cda-footer__social">
             <a href="#" aria-label="Instagram">IG</a>
             <a href="#" aria-label="YouTube">YT</a>
@@ -279,29 +276,15 @@
         </div>
         <div>
           <h4 class="cda-footer__heading">Programs</h4>
-          <ul class="cda-footer__links">
-            <li><a href="#">All Classes</a></li>
-            <li><a href="#">Online Courses</a></li>
-            <li><a href="#">In-Person</a></li>
-            <li><a href="#">Workshops</a></li>
-          </ul>
+          <ul class="cda-footer__links"><li><a href="#">All Classes</a></li><li><a href="#">Online Courses</a></li><li><a href="#">In-Person</a></li><li><a href="#">Workshops</a></li></ul>
         </div>
         <div>
           <h4 class="cda-footer__heading">About</h4>
-          <ul class="cda-footer__links">
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Instructors</a></li>
-            <li><a href="#">Student Work</a></li>
-            <li><a href="#">FAQ</a></li>
-          </ul>
+          <ul class="cda-footer__links"><li><a href="#">Our Story</a></li><li><a href="#">Instructors</a></li><li><a href="#">Student Work</a></li><li><a href="#">FAQ</a></li></ul>
         </div>
         <div>
           <h4 class="cda-footer__heading">Contact</h4>
-          <ul class="cda-footer__links">
-            <li><a href="#">hello@conceptdesignacad.com</a></li>
-            <li><a href="#">Pasadena, CA</a></li>
-            <li><a href="#">Student Portal</a></li>
-          </ul>
+          <ul class="cda-footer__links"><li><a href="#">hello@conceptdesignacad.com</a></li><li><a href="#">Pasadena, CA</a></li><li><a href="#">Student Portal</a></li></ul>
         </div>
       </div>
       <div class="cda-footer__bottom">
@@ -311,9 +294,8 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
   <script src="js/shared.js"></script>
-  <script src="js/option-a.js"></script>
+  <script src="js/option-c.js"></script>
 </body>
 </html>

@@ -22,9 +22,9 @@
 
     if (!container || !grid || !items.length) return;
 
-    // Duplicate grid items to fill the scroll runway (4x = ~20 rows = 5000px)
+    // Duplicate grid items 2x for the short scroll runway
     var originalHTML = grid.innerHTML;
-    grid.innerHTML = originalHTML + originalHTML + originalHTML + originalHTML;
+    grid.innerHTML = originalHTML + originalHTML;
 
     // Re-query after duplication
     items = grid.querySelectorAll('.cda-gallery-wall__item');
@@ -48,9 +48,8 @@
 
         // Move the grid upward — tripled content means more to scroll through
         // Scroll grid via translateY
-        // Cap scroll distance to show a reasonable amount of the grid
-        // We want to scroll through ~3000px of grid content during the 300vh scroll
-        var maxScroll = 3000;
+        // Short scroll — just enough to reveal the gallery after text fades
+        var maxScroll = 1200;
         var gridTranslateY = -(progress * maxScroll);
         grid.style.transform = 'translate3d(0,' + gridTranslateY + 'px,0)';
 

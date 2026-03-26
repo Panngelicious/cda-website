@@ -6,7 +6,7 @@
 /* --- Gallery scroll container --- */
 .cda-gallery-wall {
   position: relative;
-  height: 300vh;
+  height: 150vh; /* Short — text fades, gallery visible, quick transition out */
   background: var(--cda-black);
   overflow: clip;
 }
@@ -31,11 +31,12 @@
   perspective-origin: 50% 50vh;
 }
 
-/* Individual grid item */
+/* Individual grid item — smaller cards */
 .cda-gallery-wall__item {
   position: relative;
   aspect-ratio: 4 / 3;
   border-radius: 4px;
+  max-height: 180px;
   will-change: transform, opacity;
   transform-style: preserve-3d;
 }

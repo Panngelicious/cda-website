@@ -162,18 +162,17 @@
       content.style.opacity = '1';
     }, 200);
 
-    // Dismiss title on scroll instead of timer
-    function checkScrollDismiss() {
+    // Show/hide title based on scroll position — reappears when scrolled back to top
+    function checkScrollTitle() {
       if (window.pageYOffset > 200) {
         content.classList.add('cda-hero__content--gone');
-        if (scrollHint) {
-          scrollHint.style.transition = 'opacity 0.6s ease';
-          scrollHint.style.opacity = '0';
-        }
-        window.removeEventListener('scroll', checkScrollDismiss);
+        if (scrollHint) scrollHint.style.opacity = '0';
+      } else {
+        content.classList.remove('cda-hero__content--gone');
+        if (scrollHint) scrollHint.style.opacity = '0.7';
       }
     }
-    window.addEventListener('scroll', checkScrollDismiss, { passive: true });
+    window.addEventListener('scroll', checkScrollTitle, { passive: true });
   }
 
   function init() {

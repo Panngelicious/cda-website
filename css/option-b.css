@@ -92,15 +92,7 @@
   max-width: 700px;
   padding: 0 2rem;
   pointer-events: auto;
-  opacity: 1 !important; /* Always visible on load — JS only fades OUT on scroll */
-  transition: none;
-}
-
-.cda-hero--gallery .cda-hero__title,
-.cda-hero--gallery .cda-hero__subtitle,
-.cda-hero--gallery .cda-btn {
-  opacity: 1 !important;
-  transform: none !important;
+  /* JS controls opacity via scroll — starts at 1, fades to 0 */
 }
 
 .cda-hero--gallery .cda-hero__title {

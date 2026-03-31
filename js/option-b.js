@@ -75,7 +75,8 @@
 
         // Toggle fixed overlay when past gallery
         if (heroSection) {
-          var pastGallery = scrollY > containerTop + containerHeight - viewportHeight * 1.5;
+          // Only hide overlay after scrolling past 80% of the gallery section
+          var pastGallery = progress > 0.8;
           heroSection.classList.toggle('cda-gallery--past', pastGallery);
         }
 
@@ -93,18 +94,17 @@
     var scrollHint = document.querySelector('.cda-hero--gallery .cda-hero__scroll');
     if (!content) return;
 
-    // Visible immediately — no entrance animation
-    content.style.opacity = '1';
-
-    // Scroll-fade: fades out on any scroll
+    // Scroll-fade: only controls opacity, CSS handles positioning
     var fadeDist = 150;
     function onScrollFade() {
       var y = window.pageYOffset;
       var opacity = Math.max(0, 1 - (y / fadeDist));
-      content.style.opacity = opacity;
-      content.style.transform = 'translate(-50%, calc(-50% - ' + (y * 0.5) + 'px))';
-      if (scrollHint) scrollHint.style.opacity = Math.max(0, opacity - 0.3);
+      content.style.opacity = String(opacity);
+      if (scrollHint) scrollHint.style.opacity = String(Math.max(0, opacity - 0.3));
     }
+    // Set initial state and listen for scroll
+    window.scrollTo(0, 0);
+    onScrollFade();
     window.addEventListener('scroll', onScrollFade, { passive: true });
   }
 
